@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 17:49:40 by msierra-          #+#    #+#             */
-/*   Updated: 2021/10/30 20:06:28 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/01 18:32:01 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void ft_rotate_ra(t_list **a)
 		aux = *a;//Aux apunta a la 1 pos
 		ft_lstadd_back(a, aux);//Ponemos aux al final
 		*a = (*a)->next;//Movemos *a una pos
-		(*a)->head = *a;
 		aux->next = NULL;//Aux que es el ultimo nodo, lo apuntamos a NULL
 		write(1, "ra\n", 3);
 	}

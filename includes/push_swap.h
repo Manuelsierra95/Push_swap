@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 19:01:39 by msierra-          #+#    #+#             */
-/*   Updated: 2021/10/30 20:59:27 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/01 18:40:17 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_list
 {
 	int				content;
 	struct	s_list	*next;
-	struct	s_list	*head;
 }	t_list;
 /*
 	Errors
@@ -31,7 +30,8 @@ typedef struct s_list
 void	ft_is_sorted(t_list **a);
 void	ft_repeatnumbers(t_list **a, int numbers);
 void	ft_errormsg(void);
-void	ft_is_sorted(t_list **a);
+void	ft_is_double_sign(char *argv);
+void	ft_voidstr(int argc, char **argv);
 /*
 	List
 */
@@ -66,8 +66,10 @@ void	ft_reverse_rotate_rrr(t_list **a, t_list **b);
 
 int		*ft_sortnumbers(t_list **lst, int size);
 int		*ft_pass_to_array(t_list **lst, int size);
-void	ft_compare(t_list **a, t_list **b, int *numbers);
 void	ft_return_a(t_list **a, t_list **b);
+void	ft_order_plus_5(t_list **a, t_list **b, int *numbers);
+void	ft_order_5(t_list **a, t_list **b, int *numbers);
+void	ft_order_3(t_list **a, int *numbers);
 
 
 

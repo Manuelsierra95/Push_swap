@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:06:46 by msierra-          #+#    #+#             */
-/*   Updated: 2021/10/30 20:57:40 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/01 18:30:42 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void ft_push_pb(t_list **a, t_list **b)
 	{
 		aux = *a;
 		*a = (*a)->next;
-		(*a)->head = *a;
 		ft_lstadd_front(b, aux);
 		write(1, "pb\n", 3);
 	}
