@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 15:35:15 by msierra-          #+#    #+#             */
-/*   Updated: 2021/11/01 19:31:35 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/02 18:32:24 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	ft_order_5(t_list **a, t_list **b, int *numbers)
 	ft_order_5_3(a, numbers);
 }
 
-void	ft_order_plus_5(t_list **a, t_list **b, int *numbers)
+void	ft_order_a(t_list **a, t_list **b, int *numbers, int pivot1, int pivot2)
 {
 	int		i;
 	int		position;
@@ -129,16 +129,16 @@ void	ft_order_plus_5(t_list **a, t_list **b, int *numbers)
 
 	aux = *a;
 	position = 0;
-	i = 0;
+	i = pivot2;
 	while(aux != NULL)
 	{
-		if(aux->content == numbers[i])
+		if(aux->content == numbers[i] && i >= pivot1)
 		{
 			ft_move_a(a, position);
 			ft_push_pb(a, b);
 			aux = *a;
 			position = 0;
-			i++;
+			i--;
 		}
 		else
 		{
@@ -147,5 +147,3 @@ void	ft_order_plus_5(t_list **a, t_list **b, int *numbers)
 		}
 	}
 }
-
-

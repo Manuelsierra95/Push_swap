@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 17:49:40 by msierra-          #+#    #+#             */
-/*   Updated: 2021/11/01 18:32:01 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/02 16:15:37 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void ft_rotate_rr(t_list **a, t_list **b)
 		aux = *a;
 		ft_lstadd_back(a, aux);
 		*a = (*a)->next;
+		aux->next = NULL;
 		aux = *b;
 		ft_lstadd_back(b, aux);
 		*b = (*b)->next;
@@ -89,6 +90,6 @@ void ft_reverse_rotate_rrb(t_list **b)
 			aux = aux->next;
 		aux->next = NULL;
 		ft_lstadd_front(b, last);
-		write(1, "rra\n", 4);
+		write(1, "rrb\n", 4);
 	}
 }

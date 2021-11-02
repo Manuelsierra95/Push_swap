@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 19:01:39 by msierra-          #+#    #+#             */
-/*   Updated: 2021/11/01 18:40:17 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/02 17:04:47 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				size;
 	struct	s_list	*next;
 }	t_list;
 /*
@@ -63,13 +64,23 @@ void	ft_rotate_rr(t_list **a, t_list **b);
 void	ft_reverse_rotate_rra(t_list **a);
 void	ft_reverse_rotate_rrb(t_list **b);
 void	ft_reverse_rotate_rrr(t_list **a, t_list **b);
-
+/*
+	Logic
+*/
 int		*ft_sortnumbers(t_list **lst, int size);
 int		*ft_pass_to_array(t_list **lst, int size);
 void	ft_return_a(t_list **a, t_list **b);
-void	ft_order_plus_5(t_list **a, t_list **b, int *numbers);
+void	ft_move_a(t_list **a, int position);
+void	ft_order_a(t_list **a, t_list **b, int *numbers, int pivot1, int pivot2);
+void	ft_order_b(t_list **a, t_list **b, int *numbers, int pivot1, int pivot2);
 void	ft_order_5(t_list **a, t_list **b, int *numbers);
 void	ft_order_3(t_list **a, int *numbers);
+void	ft_quick_sort(t_list **a, t_list **b, int *numbers, int pivot1, int pivot2);
+int		ft_maxsize(int pivot, int *numbers);
+int		ft_ifdoublerotate(t_list **a);
+int		ft_ifdoublereverse(t_list **a);
+void	ft_execute(t_list **a, t_list **b, int *numbers);
+
 
 
 

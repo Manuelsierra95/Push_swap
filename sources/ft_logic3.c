@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_movements3.c                                    :+:      :+:    :+:   */
+/*   ft_logic3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 17:09:09 by msierra-          #+#    #+#             */
-/*   Updated: 2021/11/02 16:15:35 by msierra-         ###   ########.fr       */
+/*   Created: 2021/11/02 15:28:26 by msierra-          #+#    #+#             */
+/*   Updated: 2021/11/02 16:11:01 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-#include <stdio.h>
-
-void	ft_reverse_rotate_rrr(t_list **a, t_list **b)
+int	ft_ifdoublerotate(t_list **a)
 {
-	t_list	*last;
+	int	i;
 	t_list	*aux;
-	
-	if(ft_lstsize(*a) > 1)
-	{
-		aux = *a;
-		last = ft_lstlast(*a);
-		while(aux->next->next)
-			aux = aux->next;
-		aux->next = NULL;
-		ft_lstadd_front(a, last);
-		last = ft_lstlast(*b);
-		aux = *b;
-		while(aux->next->next)
-			aux = aux->next;
-		aux->next = NULL;
-		ft_lstadd_front(b, last);
-		write(1, "rrr\n", 4);
-	}
+
+	aux = *a;
+	i = 0;
+	if(aux->content < aux->next->content)
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_ifdoublereverse(t_list **a)
+{
+	int	i;
+	t_list	*aux;
+	t_list	*aux2;
+
+	aux = *a;
+	aux2 = ft_lstlast(*a);
+	i = 0;
+	if(aux->content < aux2->content)
+		return (1);
+	else
+		return (0);
 }

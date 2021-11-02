@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 19:07:57 by msierra-          #+#    #+#             */
-/*   Updated: 2021/10/30 20:58:18 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/02 13:56:39 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	*ft_sortnumbers(t_list **lst, int size)//Ordenacion burbuja
 		j = 0;
 		while(j < size - 1)
 		{
-			if(numbers[j] > numbers[j + 1])
+			if(numbers[j] < numbers[j + 1])
 			{
 				temp = numbers[j];
 				numbers[j] = numbers[j + 1];

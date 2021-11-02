@@ -6,7 +6,7 @@
 #    By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 14:59:23 by msierra-          #+#    #+#              #
-#    Updated: 2021/11/01 19:37:45 by msierra-         ###   ########.fr        #
+#    Updated: 2021/11/02 15:28:41 by msierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS		=	./includes/ft_atoi.c				\
  				./includes/ft_lstadd_back_bonus.c	\
 				./sources/ft_errors.c				\
 				./sources/ft_logic.c				\
+				./sources/ft_logic2.c				\
+				./sources/ft_logic3.c				\
 				./sources/ft_movements1.c			\
 				./sources/ft_movements2.c			\
 				./sources/ft_movements3.c			\
