@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 18:57:29 by msierra-          #+#    #+#             */
-/*   Updated: 2021/11/02 18:34:16 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/03 21:16:04 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,23 @@ void	ft_order(t_list **a, t_list **b, int *numbers)
 	int	size;
 
 	size = ft_lstsize(*a);
-	if(size <= 3)
+	if(size == 2)
+	{
+		if((*a)->content == numbers[0])
+			ft_swap_sa(a);	
+	}	
+	else if(size == 3)
 		ft_order_3(a, numbers);
-	else if(size > 3 && size <= 5)
+	else if (size == 4)
+		ft_order_4(a, b, numbers);
+	else if(size == 5)
 		ft_order_5(a, b, numbers);
-	else
-		ft_execute(a, b, numbers);
+	else if(size > 5 && size < 100)
+		ft_execute(a, b, numbers, 1);
+	else if(size >= 100 && size < 500)
+		ft_execute(a, b, numbers, 4);
+	else if(size >= 500 && size < 1001)
+		ft_execute(a, b, numbers, 10);
 }
 
 void	ft_add_a(char *str, t_list **a)
@@ -57,4 +68,10 @@ int main(int argc, char **argv)
 	numbers = ft_sortnumbers(&a, ft_lstsize(a));
 	ft_order(&a, &b, numbers);
 	ft_return_a(&a, &b);
+
+	// while(a)
+	// {
+	// 	printf("a: %d\n", a->content);
+	// 	a = a->next;
+	// }
 }

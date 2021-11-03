@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/30 15:35:15 by msierra-          #+#    #+#             */
-/*   Updated: 2021/11/02 18:32:24 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/03 20:38:35 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,29 @@
 
 #include <stdio.h>
 
-void	ft_move_a(t_list **a, int position)
-{
-	if(position < (ft_lstsize(*a) / 2))
-	{
-		while(position != 0)
-		{
-			ft_rotate_ra(a);
-			position--;
-		}
-	}
-	else
-	{
-		while(position != ft_lstsize(*a))
-		{
-			ft_reverse_rotate_rra(a);
-			position++;
-		}
-
-	}
-}
-
 void	ft_order_5_3(t_list **a, int *numbers)
 {
-	if((*a)->content == numbers[2] && (*a)->next->content == numbers[4])
+	if((*a)->content == numbers[2])
 	{
-			ft_reverse_rotate_rra(a);
+		if((*a)->next->content == numbers[4])
+			ft_rotate_ra(a);
+		else if((*a)->next->content == numbers[3])
+		{
 			ft_swap_sa(a);
+			ft_reverse_rotate_rra(a);
+		}
 	}
 	else if((*a)->content == numbers[3])
 	{
-		if((*a)->next->content == numbers[2])
+		if((*a)->next->content == numbers[4])
 			ft_swap_sa(a);
-		else
+		else if((*a)->next->content == numbers[2])
 			ft_reverse_rotate_rra(a);
 	}
-	else if((*a)->content == numbers[4])
+	else if((*a)->content == numbers[4] && (*a)->next->content == numbers[2])
 	{
-		if((*a)->next->content == numbers[2])
-		{
 			ft_reverse_rotate_rra(a);
-			ft_reverse_rotate_rra(a);
-		}
-		else
-		{
 			ft_swap_sa(a);
-			ft_reverse_rotate_rra(a);
-		}
 	}
 }
 
@@ -68,81 +44,102 @@ void	ft_order_3(t_list **a, int *numbers)
 {
 	if((*a)->content == numbers[0])
 	{
-		ft_reverse_rotate_rra(a);
-		ft_swap_sa(a);
+		if((*a)->next->content == numbers[2])
+			ft_rotate_ra(a);
+		else if((*a)->next->content == numbers[1])
+		{
+			ft_swap_sa(a);
+			ft_reverse_rotate_rra(a);
+		}
 	}	
 	else if((*a)->content == numbers[1])
 	{
-		if((*a)->next->content == numbers[0])
+		if((*a)->next->content == numbers[2])
 			ft_swap_sa(a);
-		else
+		else if((*a)->next->content == numbers[0])
 			ft_reverse_rotate_rra(a);
 	}
-	else if((*a)->content == numbers[2])
+	else if((*a)->content == numbers[2] && (*a)->next->content == numbers[0])
 	{
-		if((*a)->next->content == numbers[0])
-		{
 			ft_reverse_rotate_rra(a);
-			ft_reverse_rotate_rra(a);
-		}
-		else
-		{
 			ft_swap_sa(a);
-			ft_reverse_rotate_rra(a);
-		}
 	}
 }
 
-void	ft_order_5(t_list **a, t_list **b, int *numbers)
+void	ft_order_4(t_list **a, t_list **b, int *numbers)
 {
 	t_list	*aux;
-	int		position;
+	t_pivot	pivot;
 	int		i;
 
 	i = 0;
-	position = 0;
+	pivot.position = 0;
 	aux = *a;
 	while(aux != NULL)
 	{
-		if(aux->content == numbers[i] && i < 2)
+		if(aux->content == numbers[i] && i < 1)
 		{
-			ft_move_a(a, position);
+			ft_move_a(a, b, pivot, numbers);
 			ft_push_pb(a, b);
 			aux = *a;
-			position = 0;
+			pivot.position = 0;
 			i++;
 		}
 		else
 		{
-			position++;
+			pivot.position++;
 			aux = aux->next;	
 		}
 	}
 	ft_order_5_3(a, numbers);
 }
 
-void	ft_order_a(t_list **a, t_list **b, int *numbers, int pivot1, int pivot2)
+void	ft_order_5(t_list **a, t_list **b, int *numbers)
+{
+	t_list	*aux;
+	t_pivot	pivot;
+
+	pivot.position = 0;
+	aux = *a;
+	while(aux != NULL)
+	{
+		if(aux->content <= numbers[4] && aux->content >= numbers[2])
+		{
+			ft_move_a(a, b, pivot, numbers);
+			ft_push_pb(a, b);
+			aux = *a;
+			pivot.position = 0;
+		}
+		else
+		{
+			pivot.position++;
+			aux = aux->next;	
+		}
+	}
+	ft_order_5_3(b, numbers);
+}
+
+void	ft_order_a(t_list **a, t_list **b, int *numbers, t_pivot pivot)
 {
 	int		i;
-	int		position;
 	t_list	*aux;
 
 	aux = *a;
-	position = 0;
-	i = pivot2;
+	pivot.position = 0;
+	i = pivot.pivot2;
 	while(aux != NULL)
 	{
-		if(aux->content == numbers[i] && i >= pivot1)
+		if(aux->content == numbers[i] && i >= pivot.pivot1)
 		{
-			ft_move_a(a, position);
+			ft_move_a(a, b, pivot, numbers);
 			ft_push_pb(a, b);
 			aux = *a;
-			position = 0;
+			pivot.position = 0;
 			i--;
 		}
 		else
 		{
-			position++;
+			pivot.position++;
 			aux = aux->next;	
 		}
 	}
