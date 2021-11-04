@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 09:57:34 by msierra-          #+#    #+#             */
-/*   Updated: 2021/10/25 14:54:11 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:06:02 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t	n;
 
 	n = 0;
+	if (!s)
+		return (0);
 	while (s[n])
 	{
 		n++;

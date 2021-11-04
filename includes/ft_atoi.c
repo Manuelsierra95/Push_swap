@@ -6,7 +6,7 @@
 /*   By: msierra- <msierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 13:50:08 by msierra-          #+#    #+#             */
-/*   Updated: 2021/10/28 18:31:07 by msierra-         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:29:46 by msierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 		if (c > 2147483647 && sign == 1)
 			ft_errormsg();
 		if (c > 2147483648 && sign == -1)
-			ft_errormsg(); 
+			ft_errormsg();
 		i++;
 	}
 	return (c * sign);
